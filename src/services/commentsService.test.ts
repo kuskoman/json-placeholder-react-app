@@ -1,4 +1,4 @@
-import { CommentsService } from "./commentService";
+import { CommentsService } from "./commentsService";
 
 describe(`${CommentsService.name} instance`, () => {
   const service = new CommentsService();
