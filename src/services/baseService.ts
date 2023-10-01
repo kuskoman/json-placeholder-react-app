@@ -9,6 +9,10 @@ export abstract class BaseService<Model, CreateModel> {
     return this.request("GET", path);
   }
 
+  protected async getAll(path: string): Promise<Model[]> {
+    return this.request("GET", path);
+  }
+
   protected async post(path: string, body: CreateModel): Promise<Model> {
     return this.request("POST", path, body);
   }

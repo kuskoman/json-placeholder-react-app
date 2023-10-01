@@ -3,7 +3,7 @@ import { BaseService } from "./baseService";
 
 export class AlbumsService extends BaseService<AlbumModel, AlbumCreateModel> {
   async getAlbums() {
-    return this.get("/albums");
+    return this.getAll("/albums");
   }
 
   async getAlbum(id: number) {
