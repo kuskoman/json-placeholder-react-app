@@ -9,7 +9,7 @@ import { UserProfile } from "../../components/UserProfile/UserProfile";
 import { Address } from "../../components/UserProfile/Address";
 import { Company } from "../../components/UserProfile/Company";
 
-const UserProfilePage: React.FC = () => {
+export const UserProfilePage: React.FC = () => {
   const [user, setUser] = useState<UserModel | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -60,5 +60,3 @@ const UserProfilePage: React.FC = () => {
     </Box>
   );
 };
-
-export default UserProfilePage;

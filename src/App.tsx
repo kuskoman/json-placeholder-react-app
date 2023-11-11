@@ -5,8 +5,9 @@ import { Footer } from "./components/Common/Footer/Footer";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { AppNavbar } from "./components/Common/AppNavbar/AppNavbar";
-import NotificationBar from "./components/Common/NotificationBar/NotificationBar";
-import UserProfilePage from "./page/UserDetails/UserDetails";
+import { NotificationBar } from "./components/Common/NotificationBar/NotificationBar";
+import { UserProfilePage } from "./page/UserDetails/UserDetails";
+import { UserListPage } from "./page/UserList/UserList";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <NotificationBar />
             <Routes>
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/users" element={<UserListPage />} />
               <Route path="/users/:userId" element={<UserProfilePage />} />
             </Routes>
           </Container>

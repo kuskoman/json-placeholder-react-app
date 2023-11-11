@@ -5,7 +5,7 @@ import Alert from "@mui/material/Alert";
 import { RootState } from "../../../store/store";
 import { hideNotification } from "../../../store/notificationSlice";
 
-const NotificationBar: React.FC = () => {
+export const NotificationBar: React.FC = () => {
   const dispatch = useDispatch();
   const notification = useSelector((state: RootState) => state.notification);
 
@@ -24,5 +24,3 @@ const NotificationBar: React.FC = () => {
     </Snackbar>
   );
 };
-
-export default NotificationBar;
