@@ -1,3 +1,5 @@
+import { Optional } from "../utils/typeUtils";
+
 export interface UserModel {
   id: number;
   name: string;
@@ -28,4 +30,4 @@ export interface CompanyModel {
   bs: string;
 }
 
-export type UserCreateModel = Omit<UserModel, "id">;
+export type UserCreateModel = Optional<Omit<UserModel, "id">, "address" | "company">;
