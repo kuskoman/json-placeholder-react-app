@@ -2,18 +2,21 @@ import React from "react";
 import { UsersService } from "../../services/usersService";
 import { UserCreateModel } from "../../models/userModels";
 import { RegisterForm } from "../../components/Auth/RegisterForm/RegisterForm";
+import { useDispatch } from "react-redux";
+import { showNotification } from "../../store/notificationSlice";
 
 export const RegisterPage: React.FC = () => {
   const usersService = new UsersService();
+  const dispatch = useDispatch();
 
   const handleRegister = async (user: UserCreateModel) => {
     try {
       const newUser = await usersService.createUser(user);
       console.log("Registered user:", newUser);
-      // Handle successful registration (e.g., redirect to login page)
+      dispatch(showNotification({ message: "Registration successful.", severity: "success" }));
     } catch (error) {
       console.error("Registration error:", error);
-      // Handle registration error
+      dispatch(showNotification({ message: "Registration failed. Please try again.", severity: "error" }));
     }
   };
 
