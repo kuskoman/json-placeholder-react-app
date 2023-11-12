@@ -1,7 +1,8 @@
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { RegisterForm } from "./RegisterForm"; // Adjust the import path as needed
+import { RegisterForm } from "./RegisterForm";
+import { ValidationMessages } from "./validationMessages";
 
 describe("RegisterForm", () => {
   const mockOnSubmit = jest.fn();
@@ -12,11 +13,11 @@ describe("RegisterForm", () => {
   });
 
   it("renders the form fields and submit button", () => {
-    expect(screen.getByLabelText(/username/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/phone/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/website/i)).toBeInTheDocument();
+    expect(screen.getByTestId("username")).toBeInTheDocument();
+    expect(screen.getByTestId("email")).toBeInTheDocument();
+    expect(screen.getByTestId("name")).toBeInTheDocument();
+    expect(screen.getByTestId("phone")).toBeInTheDocument();
+    expect(screen.getByTestId("website")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /register/i })).toBeInTheDocument();
   });
 
@@ -24,30 +25,40 @@ describe("RegisterForm", () => {
     fireEvent.click(screen.getByRole("button", { name: /register/i }));
 
     await waitFor(() => {
-      expect(screen.getByText("Username is required.")).toBeInTheDocument();
-      expect(screen.getByText("Email is not valid.")).toBeInTheDocument();
-      expect(screen.getByText("Name is required.")).toBeInTheDocument();
-      expect(screen.getByText("Phone number must be 9 digits.")).toBeInTheDocument();
+      expect(screen.getByText(ValidationMessages.USERNAME_TOO_SHORT)).toBeInTheDocument();
+      expect(screen.getByText(ValidationMessages.EMAIL_REQUIRED)).toBeInTheDocument();
+      expect(screen.getByText(ValidationMessages.NAME_REQUIRED)).toBeInTheDocument();
+      expect(screen.getByText(ValidationMessages.PHONE_REQUIRED)).toBeInTheDocument();
     });
   });
 
   it("calls onSubmit with user data when form is correctly filled", async () => {
-    userEvent.type(screen.getByLabelText(/username/i), "testuser");
-    userEvent.type(screen.getByLabelText(/email/i), "test@example.com");
-    userEvent.type(screen.getByLabelText(/name/i), "Test User");
-    userEvent.type(screen.getByLabelText(/phone/i), "123456789");
-    userEvent.type(screen.getByLabelText(/website/i), "www.example.com");
+    const usernameInput = screen.getByTestId("username");
+    const emailInput = screen.getByTestId("email");
+    const nameInput = screen.getByTestId("name");
+    const phoneInput = screen.getByTestId("phone");
+    const websiteInput = screen.getByTestId("website");
 
-    fireEvent.click(screen.getByRole("button", { name: /register/i }));
+    const exampleUser = {
+      username: "testuser",
+      email: "test@example.com",
+      name: "Test User",
+      phone: "123456789",
+      website: "www.example.com",
+    };
+
+    userEvent.type(usernameInput, exampleUser.username);
+    userEvent.type(emailInput, exampleUser.email);
+    userEvent.type(nameInput, exampleUser.name);
+    userEvent.type(phoneInput, exampleUser.phone);
+    userEvent.type(websiteInput, exampleUser.website);
+
+    const submitButton = screen.getByTestId("submit");
+
+    fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(mockOnSubmit).toHaveBeenCalledWith({
-        username: "testuser",
-        email: "test@example.com",
-        name: "Test User",
-        phone: "123456789",
-        website: "www.example.com",
-      });
+      expect(mockOnSubmit).toHaveBeenCalledWith(exampleUser);
     });
   });
 });

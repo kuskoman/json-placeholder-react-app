@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Grid, Paper, TextField, Typography } from "@mui/material";
 import { UserCreateModel } from "@models/userModels";
+import { FieldValidationErrors, registerFormValidator } from "./registerFormValidator";
 
 interface RegisterFormProps {
   onSubmit: (user: UserCreateModel) => void;
@@ -14,27 +15,13 @@ const initialUser: UserCreateModel = {
   website: "",
 };
 
-interface FieldValidationErrors {
-  username?: string;
-  email?: string;
-  name?: string;
-  phone?: string;
-}
-
 export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit }) => {
   const [user, setUser] = useState<UserCreateModel>({ ...initialUser });
   const [fieldValidationErrors, setFieldValidationErrors] = useState<FieldValidationErrors>({});
 
   const validate = () => {
-    const validationErrors = { ...fieldValidationErrors };
-    validationErrors.username = user.username ? "" : "Username is required.";
-    validationErrors.email = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(user.email)
-      ? ""
-      : "Email is not valid.";
-    validationErrors.name = user.name ? "" : "Name is required.";
-    validationErrors.phone = /^[0-9]{9}$/.test(user.phone) ? "" : "Phone number must be 9 digits.";
-
-    setFieldValidationErrors({ ...validationErrors });
+    const validationErrors = registerFormValidator(user);
+    setFieldValidationErrors(validationErrors);
     return Object.values(validationErrors).every((x) => x === "");
   };
 
@@ -60,6 +47,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit }) => {
               label="Username"
               name="username"
               fullWidth
+              data-testid="username"
               value={user.username}
               onChange={handleChange}
               error={!!fieldValidationErrors.username}
@@ -71,6 +59,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit }) => {
               label="Email"
               name="email"
               type="email"
+              data-testid="email"
               fullWidth
               value={user.email}
               onChange={handleChange}
@@ -82,6 +71,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit }) => {
             <TextField
               label="Name"
               name="name"
+              data-testid="name"
               fullWidth
               value={user.name}
               onChange={handleChange}
@@ -94,6 +84,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit }) => {
               label="Phone"
               name="phone"
               type="tel"
+              data-testid="phone"
               fullWidth
               value={user.phone}
               onChange={handleChange}
@@ -102,10 +93,17 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit }) => {
             />
           </Grid>
           <Grid item xs={12}>
-            <TextField label="Website" name="website" fullWidth value={user.website} onChange={handleChange} />
+            <TextField
+              label="Website"
+              name="website"
+              data-testid="website"
+              fullWidth
+              value={user.website}
+              onChange={handleChange}
+            />
           </Grid>
           <Grid item xs={12}>
-            <Button type="submit" variant="contained" color="primary">
+            <Button type="submit" data-testid="submit" variant="contained" color="primary">
               Register
             </Button>
           </Grid>
