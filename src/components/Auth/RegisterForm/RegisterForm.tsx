@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TextField, Button, Grid, Paper, Typography } from "@mui/material";
-import { UserCreateModel } from "../../../models/userModels";
+import { UserCreateModel } from "@models/userModels";
 
 interface RegisterFormProps {
   onSubmit: (user: UserCreateModel) => void;

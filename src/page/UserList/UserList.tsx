@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { List, Typography } from "@mui/material";
-import { UserItem } from "../../components/UserItem/UserItem";
-import { UserModel } from "../../models/userModels";
-import { UsersService } from "../../services/usersService";
+import { UserItem } from "@components/UserItem/UserItem";
+import { UserModel } from "@models/userModels";
+import { UsersService } from "@services/usersService";
 
 export const UserListPage: React.FC = () => {
   const [users, setUsers] = useState<UserModel[]>([]);

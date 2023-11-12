@@ -1,9 +1,9 @@
 import React from "react";
-import { UsersService } from "../../services/usersService";
-import { UserCreateModel } from "../../models/userModels";
-import { RegisterForm } from "../../components/Auth/RegisterForm/RegisterForm";
+import { UsersService } from "@services/usersService";
+import { UserCreateModel } from "@models/userModels";
+import { RegisterForm } from "@components/Auth/RegisterForm/RegisterForm";
 import { useDispatch } from "react-redux";
-import { showNotification } from "../../store/notificationSlice";
+import { showNotification } from "@store/notificationSlice";
 
 export const RegisterPage: React.FC = () => {
   const usersService = new UsersService();

@@ -1,5 +1,5 @@
 import React from "react";
-import { UserModel } from "../../models/userModels";
+import { UserModel } from "@models/userModels";
 import { Button, ListItem, ListItemText } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 

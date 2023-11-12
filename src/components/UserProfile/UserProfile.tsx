@@ -1,5 +1,5 @@
 import React from "react";
-import { UserModel } from "../../models/userModels";
+import { UserModel } from "@models/userModels";
 import { Typography, Paper } from "@mui/material";
 
 interface UserProfileProps {

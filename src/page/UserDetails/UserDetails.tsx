@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { showNotification } from "../../store/notificationSlice";
-import { UserModel } from "../../models/userModels";
-import { UsersService } from "../../services/usersService";
-import { UserProfile } from "../../components/UserProfile/UserProfile";
-import { Address } from "../../components/UserProfile/Address";
-import { Company } from "../../components/UserProfile/Company";
+import { showNotification } from "@store/notificationSlice";
+import { UserModel } from "@models/userModels";
+import { UsersService } from "@services/usersService";
+import { UserProfile } from "@components/UserProfile/UserProfile";
+import { Address } from "@components/UserProfile/Address";
+import { Company } from "@components/UserProfile/Company";
 
 export const UserProfilePage: React.FC = () => {
   const [user, setUser] = useState<UserModel | null>(null);

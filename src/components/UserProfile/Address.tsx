@@ -1,5 +1,5 @@
 import React from "react";
-import { AddressModel } from "../../models/userModels";
+import { AddressModel } from "@models/userModels";
 import { Typography, Paper } from "@mui/material";
 
 interface AddressProps {

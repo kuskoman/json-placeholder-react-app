@@ -2,8 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
-import { RootState } from "../../../store/store";
-import { hideNotification } from "../../../store/notificationSlice";
+import { hideNotification } from "@store/notificationSlice";
+import { RootState } from "@store/store";
 
 export const NotificationBar: React.FC = () => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import React from "react";
-import { CompanyModel } from "../../models/userModels";
+import { CompanyModel } from "@models/userModels";
 import { Typography, Paper } from "@mui/material";
 
 interface CompanyProps {
