@@ -8,7 +8,8 @@ import { AppNavbar } from "./components/Common/AppNavbar/AppNavbar";
 import { NotificationBar } from "./components/Common/NotificationBar/NotificationBar";
 import { UserProfilePage } from "./pages/UserDetails/UserDetails";
 import { UserListPage } from "./pages/UserList/UserList";
-import { AlbumPage } from "./pages/Albums/Album";
+import { AlbumPage } from "./pages/Album/Album";
+import { PostPage } from "@pages/Post/Post";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path="/users" element={<UserListPage />} />
               <Route path="/users/:userId" element={<UserProfilePage />} />
               <Route path="/albums/:albumId" element={<AlbumPage />} />
+              <Route path="/posts/:postId" element={<PostPage />} />
             </Routes>
           </Container>
           <Footer />
