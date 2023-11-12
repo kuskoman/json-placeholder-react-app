@@ -11,6 +11,8 @@ export interface UserModel {
   company: CompanyModel;
 }
 
+export type UserLoginData = Pick<UserModel, "username" | "email" | "id" | "name">;
+
 export interface AddressModel {
   street: string;
   suite: string;
