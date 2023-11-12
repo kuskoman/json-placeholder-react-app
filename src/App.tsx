@@ -10,6 +10,7 @@ import { UserProfilePage } from "./pages/UserDetails/UserDetails";
 import { UserListPage } from "./pages/UserList/UserList";
 import { AlbumPage } from "./pages/Album/Album";
 import { PostPage } from "@pages/Post/Post";
+import { LoginPage } from "@pages/Login/Login";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <NotificationBar />
             <Routes>
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/login" element={<LoginPage />} />
               <Route path="/users" element={<UserListPage />} />
               <Route path="/users/:userId" element={<UserProfilePage />} />
               <Route path="/albums/:albumId" element={<AlbumPage />} />
