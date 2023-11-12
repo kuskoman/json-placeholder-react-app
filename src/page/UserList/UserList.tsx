@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { List, Typography } from "@mui/material";
 import { UserItem } from "@components/UserItem/UserItem";
 import { UserModel } from "@models/userModels";

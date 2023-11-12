@@ -1,4 +1,4 @@
-import { CommentModel, CommentCreateModel } from "../models/commentModels";
+import { CommentCreateModel, CommentModel } from "../models/commentModels";
 import { BaseService } from "./baseService";
 
 export class CommentsService extends BaseService<CommentModel, CommentCreateModel> {

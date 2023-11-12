@@ -1,6 +1,6 @@
 import React from "react";
 import { UserModel } from "@models/userModels";
-import { Typography, Paper } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 
 interface UserProfileProps {
   user: UserModel;

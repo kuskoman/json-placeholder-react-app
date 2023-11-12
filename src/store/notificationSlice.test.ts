@@ -1,4 +1,4 @@
-import { showNotification, hideNotification, notificationReducer } from "./notificationSlice";
+import { hideNotification, notificationReducer, showNotification } from "./notificationSlice";
 import { configureStore } from "@reduxjs/toolkit";
 
 describe("notificationSlice", () => {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Button, Grid, Paper, Typography } from "@mui/material";
+import { Button, Grid, Paper, TextField, Typography } from "@mui/material";
 import { UserCreateModel } from "@models/userModels";
 
 interface RegisterFormProps {
@@ -26,7 +26,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit }) => {
   const [fieldValidationErrors, setFieldValidationErrors] = useState<FieldValidationErrors>({});
 
   const validate = () => {
-    let validationErrors = { ...fieldValidationErrors };
+    const validationErrors = { ...fieldValidationErrors };
     validationErrors.username = user.username ? "" : "Username is required.";
     validationErrors.email = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(user.email)
       ? ""

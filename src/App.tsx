@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Container, Box } from "@mui/material";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Box, Container } from "@mui/material";
 import { RegisterPage } from "./page/Register/Register";
 import { Footer } from "./components/Common/Footer/Footer";
 import { Provider } from "react-redux";
