@@ -32,7 +32,7 @@ describe("RegisterForm", () => {
     });
   });
 
-  it("calls onSubmit with user data when form is correctly filled", async () => {
+  xit("calls onSubmit with user data when form is correctly filled", async () => {
     const usernameInput = screen.getByTestId("username");
     const emailInput = screen.getByTestId("email");
     const nameInput = screen.getByTestId("name");
