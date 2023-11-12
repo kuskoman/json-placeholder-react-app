@@ -21,4 +21,8 @@ export class AlbumsService extends BaseService<AlbumModel, AlbumCreateModel> {
   async deleteAlbum(id: number) {
     return this.delete(`/albums/${id}`);
   }
+
+  async getAlbumsByUserId(userId: number) {
+    return this.getAll(`/albums?userId=${userId}`);
+  }
 }

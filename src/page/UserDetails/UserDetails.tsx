@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { showNotification } from "@store/notificationSlice";
 import { UserModel } from "@models/userModels";
@@ -8,6 +8,7 @@ import { UsersService } from "@services/usersService";
 import { UserProfile } from "@components/UserProfile/UserProfile";
 import { Address } from "@components/UserProfile/Address";
 import { Company } from "@components/UserProfile/Company";
+import { AlbumsList } from "@components/Photo/AlbumList";
 
 export const UserProfilePage: React.FC = () => {
   const [user, setUser] = useState<UserModel | null>(null);
@@ -41,7 +42,7 @@ export const UserProfilePage: React.FC = () => {
   }, [dispatch, userId]);
 
   if (loading) {
-    return <Typography>Loading...</Typography>;
+    return <CircularProgress />;
   }
 
   if (notFound) {
@@ -57,6 +58,8 @@ export const UserProfilePage: React.FC = () => {
       <UserProfile user={user} />
       <Address address={user.address} />
       <Company company={user.company} />
+
+      <AlbumsList userId={user.id} />
     </Box>
   );
 };

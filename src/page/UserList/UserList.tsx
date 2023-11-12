@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { List, Typography } from "@mui/material";
+import { CircularProgress, List, Typography } from "@mui/material";
 import { UserItem } from "@components/UserItem/UserItem";
 import { UserModel } from "@models/userModels";
 import { UsersService } from "@services/usersService";
@@ -17,7 +17,7 @@ export const UserListPage: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <Typography>Loading users...</Typography>;
+    return <CircularProgress />;
   }
 
   return (
