@@ -1,11 +1,19 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Link as MuiLink, Paper, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import { AlbumModel } from "@models/albumModels";
 
-interface AlbumProps {
+interface AlbumItemProps {
   album: AlbumModel;
 }
 
-export const Album: React.FC<AlbumProps> = ({ album }) => {
-  return <Typography variant="h6">{album.title}</Typography>;
+export const Album: React.FC<AlbumItemProps> = ({ album }) => {
+  return (
+    <Paper elevation={3} sx={{ padding: 2, marginY: 2 }}>
+      <Typography variant="h6">{album.title}</Typography>
+      <MuiLink component={Link} to={`/albums/${album.id}`} sx={{ mt: 1, display: "block" }}>
+        View Album
+      </MuiLink>
+    </Paper>
+  );
 };
