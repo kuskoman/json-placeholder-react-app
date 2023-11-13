@@ -14,6 +14,7 @@ import { LoginPage } from "@pages/Login/Login";
 import { HomePage } from "@pages/Home/Home";
 import { PostListPage } from "@pages/Post/PostList";
 import { AlbumListPage } from "@pages/Album/ListAlbums";
+import { PostCreatePage } from "@pages/Post/PostCreate";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <NotificationBar />
             <Routes>
               <Route path="/home" element={<HomePage />} />
+              <Route path="/post/create" element={<PostCreatePage />} />
               <Route path="/posts" element={<PostListPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/login" element={<LoginPage />} />
