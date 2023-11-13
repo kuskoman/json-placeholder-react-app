@@ -16,6 +16,12 @@ export const AppNavbar: React.FC = () => {
           </Link>
         </Typography>
         <Box>
+          <Button color="inherit" component={Link} to="/posts">
+            Posts
+          </Button>
+          <Button color="inherit" component={Link} to="/albums">
+            Albums
+          </Button>
           {!user && (
             <>
               <Button color="inherit" component={Link} to="/login">
@@ -28,10 +34,10 @@ export const AppNavbar: React.FC = () => {
           )}
           {user && (
             <div>
-              <Button color="inherit" component={Link} to={`/users/${user.id}`}>
+              <Button color="inherit" component={Link} to={`/user/${user.id}`}>
                 Profile
               </Button>
-              <Button color="inherit" component={Link} to={`/todos/${user.id}`}>
+              <Button color="inherit" component={Link} to={`/todo/${user.id}`}>
                 Todos
               </Button>
             </div>
