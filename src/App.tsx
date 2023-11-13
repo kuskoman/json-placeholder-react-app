@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import { Box, Container } from "@mui/material";
 import { RegisterPage } from "./pages/Register/Register";
 import { Footer } from "./components/Common/Footer/Footer";
