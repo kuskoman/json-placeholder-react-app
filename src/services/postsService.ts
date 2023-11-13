@@ -2,8 +2,8 @@ import { PostCreateModel, PostModel } from "../models/postModels";
 import { BaseService } from "./baseService";
 
 export class PostsService extends BaseService<PostModel, PostCreateModel> {
-  async getPosts() {
-    return this.getAll("/posts");
+  async getPosts(page = 1, limit = 10) {
+    return this.getAll(`/posts?_page=${page}&_limit=${limit}`);
   }
 
   async getPost(id: number) {

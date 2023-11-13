@@ -2,8 +2,8 @@ import { AlbumCreateModel, AlbumModel } from "../models/albumModels";
 import { BaseService } from "./baseService";
 
 export class AlbumsService extends BaseService<AlbumModel, AlbumCreateModel> {
-  async getAlbums() {
-    return this.getAll("/albums");
+  async getAlbums(page = 1, limit = 10) {
+    return this.getAll(`/albums?_page=${page}&_limit=${limit}`);
   }
 
   async getAlbum(id: number) {

@@ -11,6 +11,7 @@ import { UserListPage } from "./pages/UserList/UserList";
 import { AlbumPage } from "./pages/Album/Album";
 import { PostPage } from "@pages/Post/Post";
 import { LoginPage } from "@pages/Login/Login";
+import { HomePage } from "@pages/Home/Home";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Container maxWidth="md" sx={{ mt: 4 }}>
             <NotificationBar />
             <Routes>
+              <Route path="/" element={<HomePage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/users" element={<UserListPage />} />
