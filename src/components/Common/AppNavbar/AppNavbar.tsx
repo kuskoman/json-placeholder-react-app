@@ -1,11 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { RootState } from "@store/store";
+import { clearUser } from "@store/userSlice";
 
 export const AppNavbar: React.FC = () => {
   const user = useSelector((state: RootState) => state.user.user);
+  const dispatch = useDispatch();
+  const currentPath = useLocation().pathname;
+
+  const logout = () => dispatch(clearUser);
 
   return (
     <AppBar position="static">
@@ -33,14 +38,17 @@ export const AppNavbar: React.FC = () => {
             </>
           )}
           {user && (
-            <div>
+            <>
               <Button color="inherit" component={Link} to={`/user/${user.id}`}>
                 Profile
               </Button>
               <Button color="inherit" component={Link} to={`/todo/${user.id}`}>
                 Todos
               </Button>
-            </div>
+              <Button color="inherit" component={Link} onClick={logout} to={currentPath}>
+                Logout
+              </Button>
+            </>
           )}
         </Box>
       </Toolbar>
