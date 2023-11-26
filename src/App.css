@@ -1,3 +1,5 @@
-.main-box {
-  min-height: 100vh;
+body,
+html,
+.main-container {
+  min-height: 85vh;
 }

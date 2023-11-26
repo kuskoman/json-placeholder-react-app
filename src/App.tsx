@@ -16,6 +16,7 @@ import { PostListPage } from "@pages/Post/PostList";
 import { AlbumListPage } from "@pages/Album/ListAlbums";
 import { PostCreatePage } from "@pages/Post/PostCreate";
 import { UserTodoListPage } from "@pages/UserTodoList/UserTodoListPage";
+import "./App.css";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         <AppNavbar />
 
         <Box display="flex" flexDirection="column" minHeight="100vh">
-          <Container maxWidth="md" sx={{ mt: 4 }}>
+          <Container maxWidth="md" sx={{ mt: 4 }} className="main-container">
             <NotificationBar />
             <Routes>
               <Route path="/home" element={<HomePage />} />
