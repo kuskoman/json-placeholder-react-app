@@ -11,7 +11,7 @@ export const Album: React.FC<AlbumItemProps> = ({ album }) => {
   return (
     <Paper elevation={3} sx={{ padding: 2, marginY: 2 }}>
       <Typography variant="h6">{album.title}</Typography>
-      <MuiLink component={Link} to={`/albums/${album.id}`} sx={{ mt: 1, display: "block" }}>
+      <MuiLink component={Link} to={`/album/${album.id}`} sx={{ mt: 1, display: "block" }}>
         View Album
       </MuiLink>
     </Paper>
