@@ -5,8 +5,20 @@ interface UserState {
   user: UserLoginData | null;
 }
 
+const getUserFromLocalStorage = (): UserState["user"] => {
+  const user = localStorage.getItem("user");
+  if (user) {
+    return JSON.parse(user);
+  }
+  return null;
+};
+
+const setUserToLocalStorage = (user: UserLoginData) => {
+  localStorage.setItem("user", JSON.stringify(user));
+};
+
 const initialState: UserState = {
-  user: null,
+  user: getUserFromLocalStorage(),
 };
 
 const userSlice = createSlice({
@@ -14,6 +26,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action: PayloadAction<UserLoginData>) => {
+      setUserToLocalStorage(action.payload);
       state.user = action.payload;
     },
     clearUser: (state) => {
