@@ -10,7 +10,7 @@ export const AppNavbar: React.FC = () => {
   const dispatch = useDispatch();
   const currentPath = useLocation().pathname;
 
-  const logout = () => dispatch(clearUser);
+  const logout = () => dispatch(clearUser());
 
   return (
     <AppBar position="static">
@@ -42,7 +42,7 @@ export const AppNavbar: React.FC = () => {
               <Button color="inherit" component={Link} to={`/user/${user.id}`}>
                 Profile
               </Button>
-              <Button color="inherit" component={Link} to={`/todo/${user.id}`}>
+              <Button color="inherit" component={Link} to={`/userTodos/${user.id}`}>
                 Todos
               </Button>
               <Button color="inherit" component={Link} onClick={logout} to={currentPath}>

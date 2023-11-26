@@ -15,6 +15,7 @@ import { HomePage } from "@pages/Home/Home";
 import { PostListPage } from "@pages/Post/PostList";
 import { AlbumListPage } from "@pages/Album/ListAlbums";
 import { PostCreatePage } from "@pages/Post/PostCreate";
+import { UserTodoListPage } from "@pages/UserTodoList/UserTodoListPage";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
               <Route path="/albums" element={<AlbumListPage />} />
               <Route path="/album/:albumId" element={<AlbumPage />} />
               <Route path="/userPosts/:postId" element={<PostPage />} />
+              <Route path="/userTodos/:userId" element={<UserTodoListPage />} />
               <Route path="/" element={<HomePage />} />
             </Routes>
           </Container>
